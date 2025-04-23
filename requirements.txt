@@ -1,0 +1,10 @@
+Flask==2.3.3
+requests==2.32.3
+debugpy # Required for debugging.
+flask-cors
+flask_sqlalchemy
+flask_migrate
+psycopg2-binary
+python-dotenv
+flask-marshmallow
+marshmallow-sqlalchemy
