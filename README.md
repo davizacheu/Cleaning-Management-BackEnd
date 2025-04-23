@@ -1,58 +1,85 @@
-# Cloud Run Hello World with Cloud Code
+# Cleaning Management BackEnd
 
-"Hello World" is a [Cloud Run](https://cloud.google.com/run/docs) application that renders a simple webpage.
+A backend application for managing cleaning services efficiently. This project is designed to streamline operations, manage resources, and provide a reliable backend infrastructure for a cleaning management system.
 
-For details on how to use this sample as a template in Cloud Code, read the documentation for Cloud Code for [VS Code](https://cloud.google.com/code/docs/vscode/quickstart-cloud-run?utm_source=ext&utm_medium=partner&utm_campaign=CDR_kri_gcp_cloudcodereadmes_012521&utm_content=-) or [IntelliJ](https://cloud.google.com/code/docs/intellij/quickstart-cloud-run?utm_source=ext&utm_medium=partner&utm_campaign=CDR_kri_gcp_cloudcodereadmes_012521&utm_content=-).
+## Features
 
-### Table of Contents
-* [Getting Started with VS Code](#getting-started-with-vs-code)
-* [Getting Started with IntelliJ](#getting-started-with-intellij)
-* [Sign up for User Research](#sign-up-for-user-research)
+- **User Management**: Create, update, and manage user accounts.
+- **Service Management**: Handle various cleaning services and their schedules.
+- **Resource Allocation**: Efficiently allocate resources to meet service requirements.
+- **Real-time Notifications**: Send alerts and updates to users.
+- **Cloud Deployment**: Deployable to Google Cloud Run for scalability and reliability.
 
----
-## Getting Started with VS Code
+## Technologies Used
 
-### Run the app locally with the Cloud Run Emulator
-1. Click on the Cloud Code status bar and select 'Run on Cloud Run Emulator'.  
-![image](./img/status-bar.png)
+- **Backend Development**: Python
+- **Frontend Integration**: HTML, CSS
+- **Containerization**: Docker
+- **Deployment**: Google Cloud Run
+- **Shell Scripting**: For automation tasks
+- **Build and Deployment**: Procfile for process management
 
-2. Use the Cloud Run Emulator dialog to specify your [builder option](https://cloud.google.com/code/docs/vscode/deploying-a-cloud-run-app#deploying_a_cloud_run_service). Cloud Code supports Docker, Jib, and Buildpacks. See the skaffold documentation on [builders](https://skaffold.dev/docs/pipeline-stages/builders/) for more information about build artifact types.  
-![image](./img/build-config.png)
+## Installation and Setup
 
-3. Click ‘Run’. Cloud Code begins building your image.
+### Prerequisites
 
-4. View the build progress in the OUTPUT window. Once the build has finished, click on the URL in the OUTPUT window to view your live application.  
-![image](./img/cloud-run-url.png)
+Ensure you have the following installed:
 
-5. To stop the application, click the stop icon on the Debug Toolbar.
+- [Python](https://www.python.org/downloads/)
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
 
----
-## Getting Started with IntelliJ
+### Steps
 
-### Run the app locally with the Cloud Run Emulator
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/davizacheu/Cleaning-Management-BackEnd.git
+   cd Cleaning-Management-BackEnd
+   ```
 
-#### Define run configuration
+2. Set up a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 
-1. Click the Run/Debug configurations dropdown on the top taskbar and select 'Edit Configurations'.  
-![image](./img/edit-config.png)
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-2. Select 'Cloud Run: Run Locally' and specify your [builder option](https://cloud.google.com/code/docs/intellij/developing-a-cloud-run-app#defining_your_run_configuration). Cloud Code supports Docker, Jib, and Buildpacks. See the skaffold documentation on [builders](https://skaffold.dev/docs/pipeline-stages/builders/) for more information about build artifact types.  
-![image](./img/local-build-config.png)
+4. Run the application locally:
+   ```bash
+   python app.py
+   ```
 
-#### Run the application
-1. Click the Run/Debug configurations dropdown and select 'Cloud Run: Run Locally'. Click the run icon.  
-![image](./img/config-run-locally.png)
+5. Optionally, use Docker:
+   ```bash
+   docker build -t cleaning-backend .
+   docker run -p 8000:8000 cleaning-backend
+   ```
 
-2. View the build process in the output window. Once the build has finished, you will receive a notification from the Event Log. Click 'View' to access the local URLs for your deployed services.  
-![image](./img/local-success.png)
+## Usage
 
----
-## Sign up for User Research
+1. Access the application by navigating to `http://localhost:8000` in your browser.
+2. Use the API for managing users, services, and resources.
+3. Deploy the application to Google Cloud Run for production use.
 
-We want to hear your feedback!
+## Deployment
 
-The Cloud Code team is inviting our user community to sign-up to participate in Google User Experience Research. 
+Follow the steps in the `README.md` to deploy the application to Google Cloud Run:
 
-If you’re invited to join a study, you may try out a new product or tell us what you think about the products you use every day. At this time, Google is only sending invitations for upcoming remote studies. Once a study is complete, you’ll receive a token of thanks for your participation such as a gift card or some Google swag. 
+1. Authenticate with Google Cloud:
+   ```bash
+   gcloud auth login
+   ```
 
-[Sign up using this link](https://google.qualtrics.com/jfe/form/SV_4Me7SiMewdvVYhL?reserved=1&utm_source=In-product&Q_Language=en&utm_medium=own_prd&utm_campaign=Q1&productTag=clou&campaignDate=January2021&referral_code=UXbT481079) and answer a few questions about yourself, as this will help our research team match you to studies that are a great fit.
+2. Deploy the application:
+   ```bash
+   gcloud run deploy
+   ```
+
+Refer to the [Google Cloud Run documentation](https://cloud.google.com/run/docs) for more details.
+
+
+Feel free to adjust any sections or add more details specific to your project. Let me know if you'd like further assistance!
